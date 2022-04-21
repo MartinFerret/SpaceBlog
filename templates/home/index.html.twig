@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page d'accueil{% endblock %}
+
+{% block body %}
+
+
+    <div class="container">
+        <h2>Nos articles</h2>
+        <div class="container-card">
+        {% for article in articles  %}
+            <div class="card"><a href="{{path('article_id', {'slug' : article.slug}) }}">
+                <div class="image">
+                    <img src="{{ article.cover }}" alt="">
+                </div>
+                <div class="text">
+                    <p>{{ article.title }}</p>
+                </div>
+            </a></div>
+        {% endfor %}
+        </div>
+
+    </div>
+
+{% endblock %}

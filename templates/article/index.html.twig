@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Article{% endblock %}
+
+{% block body %}
+
+    <div class="breadcrumb">
+        {% for bread in breadcrumb  %}
+            <a href="{{ bread.url }}">{{ bread.label }}</a> {% if not loop.last %} / {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="separator">
+        <h1>{{ article.title }}</h1>
+    </div>
+
+    <div class="container-article">
+        <div class="article-image">
+            <img src="{{ article.cover }}" alt="{{ article.title }}">
+        </div>
+        <div class="article-desc">
+            <div class="trait"></div>
+            <div class="text">
+                <p>{{article.content}}</p>
+                <br>
+                <small>Publié le {{ article.createdAt | date('m-d-Y') }}</small>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
