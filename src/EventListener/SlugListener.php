@@ -10,6 +10,6 @@ class SlugListener
 
     public function prePersist(Article $article, LifecycleEventArgs $event)
     {
-        $article->setSlug(strtr(strtolower($article->getTitle()), "éàÉÀ", "eaEA"));
+        $article->setSlug(strtolower(strtr($article->getTitle(), "éàÉÀ", "eaEA")));
     }
 }
